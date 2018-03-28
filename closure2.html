@@ -1,0 +1,27 @@
+<html>
+<body>
+
+<script>
+// if a function is invoked only once - then you may use IIFE
+var incrementAndShowCount = (function () {
+								// these variables are local scope to closureFunc, but
+								var x = 0; 
+								var y = 1;
+
+								// they are closure scope to anonymous inner function 
+								var counterFunc = function() 
+													{
+														x++; // this alive because of clousre scope
+														console.log('I\'m Donald Trump: my idiot scale counter is: ' + x);
+													}
+								
+								console.log('welcome to disneyland: I\'m Mickey and I\'m ' + y + ' years young');
+								return counterFunc;
+							})();
+
+</script>
+
+<input type="button" onclick="incrementAndShowCount()" value="click me">
+
+</body>
+</html>

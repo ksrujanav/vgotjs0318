@@ -1,0 +1,61 @@
+<html><head></head><body><input type="button" value="start" onClick="onStartClicked()"><br><input type="button" value="stop" onClick="onStopClicked()"><br><div id="digital_clock"></div><script>
+
+// window.setTimeout(function, timeout in milliseconds)
+
+console.log('hello');
+
+/*
+window.setTimeout(  function(str) {
+						console.log(str);
+					},
+					2000, // wait time before the call back function is called
+					'I\'m a Go Getter!'
+				);
+*/
+
+/*
+window.setInterval(  function(str) {
+						console.log(str);
+					},
+					2000, // wait time before the call back function is called
+					'I\'m a Go Getter!'
+				);
+*/
+
+/*
+var f = function(str) { 
+			console.log(str);
+			window.setTimeout(f, 2000, str);
+		}
+
+window.setTimeout(  f,
+					2000, // wait time before the call back function is called
+					'I\'m a Go Getter!'
+				);
+*/
+
+console.log('world');
+
+var intervalID;
+
+function onStartClicked() {
+	intervalID = 
+		window.setInterval(  function(str) {
+							console.log(str);
+						},
+						2000, // wait time before the call back function is called
+						'I\'m a Go Getter!'
+					);
+}
+
+
+function onStopClicked() {
+	if (intervalID) { // using truthsy, falsy values concept
+		window.clearInterval(intervalID);
+	}
+}
+
+
+
+
+</script></body></html>

@@ -1,0 +1,41 @@
+<html><head></head><body><input type="button" value="start" onClick="onStartClicked()"><br><input type="button" value="stop" onClick="onStopClicked()"><br><div id="digital_clock"></div><script>
+
+// returns current date as string
+function getCurrentTimeAsStr() {
+	/*
+	var timeNow = new Date();
+	var timeNowStr = timeNow.toUTCString();
+	return timeNowStr;
+	*/
+	
+	// function/method chaining: e.g. a().b().c()
+	// in-lining: eliminating temporary variables, when not needed
+
+	return new Date().toString();
+}
+
+var updateTimeInDOM = function() {
+	var textObj = document.createTextNode(getCurrentTimeAsStr());	
+	var divObj = document.getElementById("digital_clock");
+	divObj.innerHTML = "";
+	divObj.appendChild(textObj);
+}
+
+var runningTimer;
+
+// controller --- coordinates like manager
+function onStartClicked() {
+	// update time in DOM
+	updateTimeInDOM();
+	// start a timer for updating every 10sec
+	runningTimer = window.setInterval( updateTimeInDOM, 1000 );
+}
+
+function onStopClicked() {
+	// stop the running timer
+	window.clearInterval(runningTimer);
+}
+
+
+
+</script></body></html>
